@@ -1,0 +1,37 @@
+.col {
+  position: relative;
+
+  padding: 8px 4px;
+
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+.text {
+  display: block;
+  max-width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  cursor: default;
+}
+.hint {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+  z-index: 10;
+
+  padding: 8px 4px;
+
+  min-width: 100%;
+  min-height: 100%;
+
+  color: #fff;
+  white-space: nowrap;
+
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+}

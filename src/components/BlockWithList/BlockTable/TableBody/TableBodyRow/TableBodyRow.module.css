@@ -1,0 +1,17 @@
+.row {
+  display: grid;
+  /* grid-template-columns: 50px 150px 150px 200px 200px repeat(5, 105px) repeat(5,105px) ; */
+  grid-template-columns: min-content repeat(15, 100px);
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 00;
+
+  min-height: 30px;
+  /* padding: 4px 0; */
+
+  border-bottom: 1px solid rgb(160, 160, 160);
+}
+.col {
+  padding: 0 8px;
+}

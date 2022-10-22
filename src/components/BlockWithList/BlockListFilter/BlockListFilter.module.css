@@ -1,0 +1,41 @@
+.filter {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.input {
+  width: 200px;
+  border: 2px solid transparent;
+
+  min-height: 30px;
+  margin: -4px 0;
+
+  padding: 2px 4px;
+
+  transition: all var(--timing-function__main);
+}
+.input:hover,
+.input:focus-visible {
+  outline-style: none;
+  border-color: var(--brand_clr__1);
+}
+.button {
+  display: flex;
+  align-items: center;
+
+  min-height: 30px;
+  margin: -4px 0;
+
+  border-style: none;
+  border: 2px solid transparent;
+
+  background-color: #fff;
+}
+
+.button:hover {
+  border: 2px solid var(--brand_clr__1);
+}
+.button:active {
+  box-shadow: inset 0 0 5px rgba(122, 122, 122, 0.5);
+  border: 2px solid var(--brand_clr__1);
+}
