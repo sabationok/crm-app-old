@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ProductsPage from 'components/Pages/ProductsPage';
 
-import css from './Layout.module.css';
+import css from './Layout.module.scss';
 const Layout = props => {
   return (
     <>
@@ -11,7 +11,7 @@ const Layout = props => {
           <span className={css.logoText}>LO</span>
           <span className={css.logoText}>GO</span>
         </a>
-        <div className={css.menu}>
+        <div className={css.menuBox}>
           <button className={css.button} type="button">
             MENU
           </button>
