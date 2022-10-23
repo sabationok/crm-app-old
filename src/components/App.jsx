@@ -1,11 +1,11 @@
 import Layout from './Layout/Layout';
 // import { useApp } from './contexts/AppContext';
-import css from './App.module.css';
+import scss from './App.module.scss';
 
 export const App = () => {
   // const {isLoged} = useApp();
   return (
-    <div className={css.app}>
+    <div className={scss.app}>
       <Layout />
     </div>
   );
