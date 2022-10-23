@@ -4,7 +4,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v01-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -24,7 +24,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v02-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -44,7 +44,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v03-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -64,7 +64,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v03-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -84,7 +84,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v03-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -104,7 +104,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v00-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -124,7 +124,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v01-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -144,7 +144,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v02-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),
@@ -164,7 +164,7 @@ export const productsArray = [
   {
     id: nanoid(5),
     data: {
-      sku: `v002-g0217-art${nanoid(6)}`,
+      sku: `v01-g0217-art${nanoid(6)}`,
       name: 'Сукня рожева, шовкова',
       author: 'Alureee',
       authorId: nanoid(3),

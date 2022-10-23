@@ -3,24 +3,30 @@ import React, { useState } from 'react';
 
 import css from './TableBodyCol.module.css';
 
-const TableBodyCol = ({ text, i }) => {
+const TableBodyCol = ({ name, text, i }) => {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
-    <div
+    <td
       className={[css.col, css[`tdCol_${(i += 1)}`]].join(' ')}
       onMouseEnter={() => {
-        setShowInfo(true)
+        setShowInfo(true);
       }}
       onMouseLeave={() => {
-        setShowInfo(false)
+        setShowInfo(false);
       }}
     >
       <span className={css.text}>{text}</span>
-      {/* {text} */}
-      
-      {showInfo && <span className={css.hint}>{text}</span>}
-    </div>
+
+      {showInfo &&
+        (name === 'sku' ? (
+          <a className={css.hintLink} href="./">
+            {text}
+          </a>
+        ) : (
+          <span className={css.hint}>{text}</span>
+        ))}
+    </td>
   );
 };
 

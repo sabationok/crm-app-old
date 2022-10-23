@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
-import { tableColTitles } from './TableColTitles';
-import { productsArray } from 'data/products';
 
 import css from './BlockTable.module.css';
 
-const BlockTable = props => {
+const BlockTable = ({ titlesArr}) => {
+  
   return (
-    <div className={[css.table, css.orders]}>
-      <TableHead arr={tableColTitles} />
-      <TableBody arr={productsArray}/>
-    </div>
+    <table className={[css.table, css.orders]}>
+      <TableHead
+        arr={titlesArr}
+        // selectedList={selectedList}
+        // setSelectedList={setSelectedList}
+      />
+      <TableBody
+        // arr={dataArr}
+        // selectedList={selectedList}
+        // setSelectedList={setSelectedList}
+      />
+    </table>
   );
 };
 

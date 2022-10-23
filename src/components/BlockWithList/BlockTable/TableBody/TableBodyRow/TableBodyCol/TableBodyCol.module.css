@@ -16,13 +16,15 @@
   text-overflow: ellipsis;
 
   cursor: default;
+  pointer-events: none;
 }
-.hint {
+.hint,
+.hintLink {
   position: absolute;
 
   top: 100%;
   left: 0;
-  z-index: 10;
+  z-index: 4;
 
   padding: 8px 4px;
 
@@ -34,4 +36,7 @@
 
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.6);
+}
+.hintLink {
+  text-decoration: underline;
 }
