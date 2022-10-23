@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 // import PropTypes from 'prop-types';
 import css from './TableBodyRow.module.scss';
 import TableBodyCol from './TableBodyCol/TableBodyCol';
-import { useBlockWithList } from 'components/contexts/TableContext';
+import { useBlockWithList } from 'components/contexts/BlockTableContext';
 // import { usePage } from 'components/contexts/PageContext';
 
 const TableBodyRow = ({ obj, onTableRowClick }) => {

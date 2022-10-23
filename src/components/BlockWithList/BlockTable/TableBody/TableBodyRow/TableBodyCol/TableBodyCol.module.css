@@ -36,6 +36,8 @@
 
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.6);
+
+  transition: all var(--timing-function__main);
 }
 .hintLink {
   text-decoration: underline;

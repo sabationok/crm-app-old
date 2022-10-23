@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types'
-import { useBlockWithList } from 'components/contexts/TableContext';
+import { useBlockWithList } from 'components/contexts/BlockTableContext';
 import Notify from 'components/Notify/Notify';
 
 import css from './BlockListFilter.module.css';

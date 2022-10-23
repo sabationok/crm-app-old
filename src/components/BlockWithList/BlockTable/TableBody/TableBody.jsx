@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import TableBodyRow from './TableBodyRow/TableBodyRow';
 import scss from './TableBody.module.scss';
-import { useBlockWithList } from 'components/contexts/TableContext';
+import { useBlockWithList } from 'components/contexts/BlockTableContext';
 import { usePage } from 'components/contexts/PageContext';
 
 const TableBody = () => {

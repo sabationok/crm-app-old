@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const PageContext = createContext();
 
@@ -11,18 +11,14 @@ export const PageProvider = ({ children }) => {
     setSelectedItemId(itemId);
     console.log(`addet item by id (${itemId}) to context`);
   }
-  function clearItemByClick(itemId) {
+  function deleteItemByClick(itemId) {
     setSelectedItemId(null);
     console.log(` deleted ${itemId}`);
   }
 
-  useEffect(() => {
-    console.log('from context',selectedItemId);
-  }, [selectedItemId]);
-
   return (
     <PageContext.Provider
-      value={{ selectItemByClick, clearItemByClick, selectedItemId }}
+      value={{ selectItemByClick, deleteItemByClick, selectedItemId }}
     >
       {children}
     </PageContext.Provider>

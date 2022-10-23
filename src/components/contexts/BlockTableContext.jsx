@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState,useEffect } from 'react';
 import { productsArray } from 'data/products';
 const BlockWithListContext = createContext();
 
@@ -31,6 +31,8 @@ export const BlockWithListProvider = ({ children }) => {
     setSelectedRowsList(selectedRowsList.filter(el => el !== sku));
     console.log('del', sku);
   }
+
+  useEffect(()=>{console.log(selectedRowsList);},[selectedRowsList, selectedRowsList.length])
 
   return (
     <BlockWithListContext.Provider
