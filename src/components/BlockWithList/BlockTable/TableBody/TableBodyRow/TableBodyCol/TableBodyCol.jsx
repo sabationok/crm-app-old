@@ -1,14 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import css from './TableBodyCol.module.css';
+import scss from './TableBodyCol.module.scss';
 
 const TableBodyCol = ({ dataTitle, text, i, data = '---' }) => {
   // const [showInfo, setShowInfo] = useState(false);
 
   return (
     <td
-      className={[css.col, css[`tdCol_${(i += 1)}`]].join(' ')}
+      className={[scss.col, scss[`tdCol_${(i += 1)}`]].join(' ')}
       // onMouseEnter={() => {
       //   setShowInfo(true);
       // }}
@@ -16,7 +16,7 @@ const TableBodyCol = ({ dataTitle, text, i, data = '---' }) => {
       //   setShowInfo(false);
       // }}
     >
-      <span className={css.text}>{data}</span>
+      <span className={scss.text}>{data}</span>
       {/* {showInfo && <span className={css.hint}>{text}</span>} */}
     </td>
   );
