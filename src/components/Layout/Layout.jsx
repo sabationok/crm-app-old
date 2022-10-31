@@ -1,9 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 // import PropTypes from 'prop-types';
-import ProductsPage from 'components/Pages/ProductsPage';
 
 import css from './Layout.module.scss';
-const Layout = props => {
+const Layout = ({ children }) => {
   return (
     <>
       <header className={css.header}>
@@ -17,18 +17,42 @@ const Layout = props => {
           </button>
           <ul className={css.navList}>
             <li>
-              <a
+              <NavLink className={css.navLink} to="/main" rel="noopener noreferrer">
+                Головна
+              </NavLink>
+              <NavLink
                 className={css.navLink}
-                href="./crm_react"
+                to="products"
                 rel="noopener noreferrer"
               >
-                Головна
-              </a>
+                Товари
+              </NavLink>
+              <NavLink
+                className={css.navLink}
+                to="orders"
+                rel="noopener noreferrer"
+              >
+                Замовлення
+              </NavLink>
+              <NavLink
+                className={css.navLink}
+                to="returns"
+                rel="noopener noreferrer"
+              >
+                Повернення
+              </NavLink>
+              <NavLink
+                className={css.navLink}
+                to="logout"
+                rel="noopener noreferrer"
+              >
+                Вихід
+              </NavLink>
             </li>
           </ul>
         </div>
       </header>
-      <ProductsPage />
+      {children}
     </>
   );
 };

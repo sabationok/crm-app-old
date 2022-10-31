@@ -59,6 +59,7 @@
 }
 .selectList {
   min-width: 100%;
+  width: fit-content;
 
   overflow: auto;
 
@@ -100,7 +101,6 @@
     border: 2px solid var(--brand_clr__1);
   }
 }
-
 .notification {
   position: absolute;
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import BlockWithList from 'components/BlockWithList/BlockWithList';
 import Block from 'components/Block/Block';
 import { BlockWithListProvider } from 'components/contexts/BlockTableContext';
@@ -33,6 +33,11 @@ const ProductsPage = props => {
   );
 };
 
-// ProductsPage.propTypes = {}
+ProductsPage.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
 
 export default ProductsPage;
