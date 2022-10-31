@@ -19,12 +19,13 @@ const BlockTable = ({ titlesArr }) => {
   const [foundedPosts, setFoundedPosts] = useState([]);
 
   useEffect(() => {
-    if (posts !== []) {
+    if (posts.length !== 0) {
       setTableDate(cloneDeep(posts));
       return;
     }
   }, [posts]);
 
+console.log(tableData);
   useEffect(() => {
     function applyFilter() {
       setFoundedPosts(

@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types'
-
 import { useDispatch } from 'react-redux';
 import { actionChangeSearchQuery } from 'redux/actions/postsActions';
+// import PropTypes from 'prop-types'
+import { tableColTitles } from '../BlockTable/TableColTitles';
 
-import css from './BlockListFilter.module.css';
+import scss from './BlockListFilter.module.scss';
 
 const BlockListFilter = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchParam, setSearchParam] = useState({ name: 'Оберіть' });
+  const [isSelectOpen, seIsSelectOpen] = useState(false);
+  const classOpen = [
+    scss.selectList,
+    isSelectOpen ? scss.selectShown : scss.selectHidden,
+  ].join(' ');
   const dispatch = useDispatch();
 
   function onInputChange(evt) {
@@ -18,6 +24,16 @@ const BlockListFilter = () => {
     evt.preventDefault();
     dispatch(actionChangeSearchQuery(searchQuery));
   }
+  function onSearchParamClick({ ev, item }) {
+    const { target } = ev;
+    setSearchParam(item);
+    seIsSelectOpen(false)
+    console.log(target.textContent)
+  }
+  function handleSelectOpen(ev) {
+    console.log(ev.target);
+    seIsSelectOpen(!isSelectOpen);
+  }
 
   useEffect(() => {
     if (searchQuery === '') {
@@ -25,15 +41,15 @@ const BlockListFilter = () => {
     }
   }, [dispatch, searchQuery]);
   return (
-    <div>
+    <div className={scss.filterContainer}>
       <form
-        className={css.filter}
+        className={scss.filter}
         onSubmit={evt => {
           handleFormSubmit(evt);
         }}
       >
         <input
-          className={css.input}
+          className={scss.input}
           type="text"
           name="searchQuery"
           value={searchQuery}
@@ -42,10 +58,41 @@ const BlockListFilter = () => {
             onInputChange(evt);
           }}
         />
-        <button className={css.button} type="submit">
+        <button className={scss.button} type="submit">
           Шукати
         </button>
       </form>
+      <div className={scss.customSelect}>
+        {/* <input
+          className={scss.inputParam}
+          type="text"
+          value={searchParam.name}
+          onClick={handleSelectOpen}
+          onChange={console.log(searchParam.name)}
+        /> */}
+        <div className={scss.inputParam} onClick={handleSelectOpen}>
+            {searchParam.name}
+          </div>
+        <ul className={classOpen}>
+          {tableColTitles.map(item => (
+            <li
+              key={item.id}
+              className={scss.selectItem}
+              data-title={item.dataTitle}
+              onClick={ev => {
+                onSearchParamClick({ ev, item });
+              }}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* <form>
+        <button className={scss.button} type="submit">
+          Параметр
+        </button>
+      </form> */}
     </div>
   );
 };
