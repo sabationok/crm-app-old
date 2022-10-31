@@ -23,7 +23,7 @@ export const slisePostsBlock = createSlice({
       state.searchQuery = payload;
     },
     [actionChangeSearchParam](state, { payload }) {
-      console.log(payload.dataTitle);
+      console.log(payload);
       state.searchParam = payload.dataTitle;
     },
     [actionSelectPostByClick](state, { payload }) {

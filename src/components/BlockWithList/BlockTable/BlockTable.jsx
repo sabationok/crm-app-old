@@ -5,6 +5,7 @@ import cloneDeep from 'lodash.clonedeep';
 
 import { useSelector } from 'react-redux';
 import { selectPosts, selectPostsBlock } from 'redux/selectors';
+import { applyFounder } from 'components/utils/founder';
 
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
@@ -13,7 +14,7 @@ import css from './BlockTable.module.css';
 
 const BlockTable = ({ titlesArr }) => {
   const { posts } = useSelector(selectPosts);
-  const { searchQuery } = useSelector(selectPostsBlock);
+  const { searchQuery, searchParam } = useSelector(selectPostsBlock);
   const [selectedAll, setSelectedAll] = useState(false);
   const [tableData, setTableDate] = useState([]);
   const [foundedPosts, setFoundedPosts] = useState([]);
@@ -25,21 +26,33 @@ const BlockTable = ({ titlesArr }) => {
     }
   }, [posts]);
 
-console.log(tableData);
+  console.log(tableData);
   useEffect(() => {
-    function applyFilter() {
-      setFoundedPosts(
-        tableData.filter(
-          ({ name }) =>
-            !(
-              searchQuery &&
-              !name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-        )
-      );
-    }
-    applyFilter();
-  }, [searchQuery, tableData]);
+    // function applyFilter() {
+    //   setFoundedPosts(
+    //     tableData.filter(
+    //       ({ name }) =>
+    //         !(
+    //           searchQuery &&
+    //           !name.toLowerCase().includes(searchQuery.toLowerCase())
+    //         )
+    //     )
+    //   );
+    // }
+    // applyFilter();
+    // applyFounder({
+    //   param: searchParam,
+    //   searchQuery: searchQuery,
+    //   data: tableData,
+    //   setFoundedData: setFoundedPosts,
+    // });
+    setFoundedPosts(applyFounder({
+      param: searchParam,
+      searchQuery: searchQuery,
+      data: tableData,
+      setFoundedData: setFoundedPosts,
+    }))
+  }, [searchParam, searchQuery, tableData]);
 
   return (
     <table className={[css.table, css.orders]}>
