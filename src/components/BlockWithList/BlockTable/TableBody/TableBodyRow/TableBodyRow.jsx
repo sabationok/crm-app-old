@@ -1,24 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import css from './TableBodyRow.module.scss';
 import TableBodyCol from './TableBodyCol/TableBodyCol';
-import { useBlockWithList } from 'components/contexts/BlockTableContext';
-// import { usePage } from 'components/contexts/PageContext';
 
-const TableBodyRow = ({ obj, onTableRowClick }) => {
+const TableBodyRow = ({ postData, onTableRowClick, selectedAll, titles }) => {
   const [selected, setSelected] = useState(false);
-  const { addRowBySku, deleteRowBySku } = useBlockWithList();
-  // const { selectItemByClick, clearItemByClick, selectedItemId } = usePage();
-  
-  const itemIdRef = useRef(obj.id);
+  const itemIdRef = useRef(postData.id);
+
   function onCheckboxChange(ev) {
-    // let { target } = ev;
     setSelected(!selected);
-    if (selected) {
-      deleteRowBySku(obj.data.sku);
-      return;
-    }
-    addRowBySku(obj.data.sku);
   }
   function handleTableRowClick(ev) {
     let { target, currentTarget } = ev;
@@ -31,32 +21,33 @@ const TableBodyRow = ({ obj, onTableRowClick }) => {
     onTableRowClick(transferData);
   }
 
-  const arrKeys = Object.keys(obj.data);
-  const arrValues = Object.values(obj.data);
+  useEffect(() => {
+    if (selectedAll) {
+      setSelected(true);
+    } else {
+      setSelected(false);
+    }
+  }, [selectedAll]);
+
   return (
-    <>
-      <tr
-        className={css.row}
-        onClick={ev => {
-          handleTableRowClick(ev);
-        }}
-      >
-        <td className={[css.col, css.td_col_checkbox].join(' ')}>
-          <form>
-            <input
-              type="checkbox"
-              checked={selected}
-              onChange={ev => {
-                onCheckboxChange(ev);
-              }}
-            />
-          </form>
-        </td>
-        {arrValues.map((el, i) => {
-          return <TableBodyCol key={i} name={arrKeys[i]} text={el} i={i} />;
-        })}
-      </tr>
-    </>
+    <tr className={css.row} onClick={handleTableRowClick}>
+      <td className={[css.col, css.td_col_checkbox].join(' ')}>
+        <input
+          type="checkbox"
+          checked={selected}
+          onChange={ev => {
+            onCheckboxChange(ev);
+          }}
+        />
+      </td>
+      {titles.map(el => (
+        <TableBodyCol
+          key={el.id}
+          data={postData[el.dataTitle]}
+          dataTitle={el.dataTitle}
+        />
+      ))}
+    </tr>
   );
 };
 

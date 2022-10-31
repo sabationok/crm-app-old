@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { actionSelectPostByClick } from 'redux/actions/postsActions';
+
 import TableBodyRow from './TableBodyRow/TableBodyRow';
 import scss from './TableBody.module.scss';
-import { useBlockWithList } from 'components/contexts/BlockTableContext';
-import { usePage } from 'components/contexts/PageContext';
 
-const TableBody = () => {
-  const { visibleList } = useBlockWithList();
-  const { selectItemByClick } = usePage();
-
-  const [selectedRow, setSelectedRow] = useState();
+const TableBody = ({ tableData, titles, selectedAll }) => {
   const [prevRow, setPrevRow] = useState();
-  const [selectedCol, setSelectedCol] = useState();
   const [prevCol, setPrevCol] = useState();
+  const [selectedRow, setSelectedRow] = useState();
+  const [selectedCol, setSelectedCol] = useState();
+  const dispatch = useDispatch();
 
   function onTableRowClick({ ev, target, currentTarget, itemId }) {
     setSelectedRow(currentTarget);
     setSelectedCol(target);
-    selectItemByClick(itemId);
+    dispatch(actionSelectPostByClick(itemId));
 
     currentTarget.classList.add(scss.selectedRow);
     target.classList.add(scss.selectedCol);
@@ -45,10 +44,12 @@ const TableBody = () => {
 
   return (
     <tbody className={scss.tbody}>
-      {visibleList.map(el => (
+      {tableData.map(el => (
         <TableBodyRow
           key={el.id}
-          obj={el}
+          postData={el}
+          titles={titles}
+          selectedAll={selectedAll}
           onTableRowClick={ev => {
             onTableRowClick(ev);
           }}

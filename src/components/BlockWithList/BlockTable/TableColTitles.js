@@ -13,12 +13,12 @@ export const tableColTitles = [
   {
     id: nanoid(3),
     name: 'Автор',
-    dataTitle: 'Author',
+    dataTitle: 'authorName',
   },
   {
     id: nanoid(3),
     name: 'ID автора',
-    dataTitle: 'AuthorID',
+    dataTitle: 'authorId',
   },
   {
     id: nanoid(3),
@@ -58,7 +58,7 @@ export const tableColTitles = [
   {
     id: nanoid(3),
     name: 'Термін виг-ня, дні',
-    dataTitle: 'prodTermin',
+    dataTitle: 'manufacturingTime',
   },
   {
     id: nanoid(3),
@@ -75,5 +75,4 @@ export const tableColTitles = [
     name: 'Пусто',
     dataTitle: 'empty',
   },
-
 ];

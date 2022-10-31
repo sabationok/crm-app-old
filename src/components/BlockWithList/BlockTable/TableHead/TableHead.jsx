@@ -3,14 +3,21 @@ import React from 'react';
 
 import css from './TableHead.module.scss';
 
-const TableHead = ({ arr }) => {
+const TableHead = ({ titles, setSelectedAll, selectedAll }) => {
+  function onHeadCheckboxChange() {
+    setSelectedAll(!selectedAll);
+  }
   return (
     <thead className={css.thead}>
       <tr className={css.row}>
         <th className={css.col}>
-          <input className={css.checkbox} type="checkbox" />
+          <input
+            className={css.checkbox}
+            type="checkbox"
+            onChange={onHeadCheckboxChange}
+          />
         </th>
-        {arr.map(({ id, name, dataTitle }, i) => {
+        {titles.map(({ id, name, dataTitle }, i) => {
           return (
             <th
               key={id}

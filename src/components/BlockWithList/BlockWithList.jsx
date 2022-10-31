@@ -8,17 +8,17 @@ import { tableColTitles } from './BlockTable/TableColTitles';
 
 import css from './BlockWithList.module.scss';
 
-const BlockWithList = props => {
+const BlockWithList = () => {
   return (
     <div className={css.block}>
       <div className={css.header}>
-        <BlockListFilter></BlockListFilter>
+        <BlockListFilter />
         <div id={'blockNotif'}></div>
       </div>
       <div className={css.content}>
-        <div className={css.overflow}>
-          <BlockTable titlesArr={tableColTitles}></BlockTable>
-        </div>
+        <form className={css.overflow}>
+          <BlockTable titlesArr={tableColTitles}/>
+        </form>
       </div>
       <div className={css.footer}></div>
     </div>

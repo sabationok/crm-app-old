@@ -1,24 +1,22 @@
-import { createContext, useContext, useState,useEffect } from 'react';
-import { productsArray } from 'data/products';
+import { createContext, useContext, useState,  } from 'react';
+import clonedeep from 'lodash.clonedeep';
+
+import { useSelector,  } from 'react-redux';
+import { selectPosts } from 'redux/selectors';
+
 const BlockWithListContext = createContext();
 
 export const useBlockWithList = () => useContext(BlockWithListContext);
 
 export const BlockWithListProvider = ({ children }) => {
-  const loadedArr = [...productsArray];
-  const [visibleList, setVisibleList] = useState([]);
+  const { posts } = useSelector(selectPosts);
+  let loadedPosts = clonedeep(posts);
   const [selectedRowsList, setSelectedRowsList] = useState([]);
   const [filterActive, setFilterActive] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   function forFilterList(searchQuery) {
-    if (searchQuery === '') {
-      setVisibleList(loadedArr);
-      setFilterActive(false);
-      return;
-    }
-    setVisibleList(loadedArr.filter(el => el.data.sku.includes(searchQuery)));
-    setFilterActive(true);
-    console.log('rerender fliter', searchQuery);
+    setSearchQuery(searchQuery);
   }
   function addRowBySku(sku) {
     console.log('add', sku);
@@ -29,19 +27,19 @@ export const BlockWithListProvider = ({ children }) => {
   }
   function deleteRowBySku(sku) {
     setSelectedRowsList(selectedRowsList.filter(el => el !== sku));
-    console.log('del', sku);
   }
 
-  useEffect(()=>{console.log(selectedRowsList);},[selectedRowsList, selectedRowsList.length])
-
+  
   return (
     <BlockWithListContext.Provider
       value={{
-        visibleList,
+        loadedPosts,
         forFilterList,
+        searchQuery,
         filterActive,
         setFilterActive,
         selectedRowsList,
+        setSelectedRowsList,
         addRowBySku,
         deleteRowBySku,
       }}
