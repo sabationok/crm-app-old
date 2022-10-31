@@ -10,3 +10,6 @@ export const actionDeletePost = createAction('posts/actionDeletePost');
 export const actionSelectPostByClick = createAction(
   'posts/actionSelectPostByClick'
 );
+export const actionChangeSearchParam = createAction(
+  'posts/actionChangeSearchParam'
+);

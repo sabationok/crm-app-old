@@ -4,13 +4,16 @@ import {
   actionMarkCheckbox,
   actionUnmarkCheckbox,
   actionDeletePost,
-  actionSelectPostByClick,actionMarkAllCheckboxes,
+  actionSelectPostByClick,
+  actionMarkAllCheckboxes,
+  actionChangeSearchParam,
 } from 'redux/actions/postsActions';
 
 const initialState = {
   markedPosts: [],
   selectedPostId: null,
   searchQuery: '',
+  searchParam: '',
 };
 export const slisePostsBlock = createSlice({
   name: 'postsBlock',
@@ -18,6 +21,10 @@ export const slisePostsBlock = createSlice({
   extraReducers: {
     [actionChangeSearchQuery](state, { payload }) {
       state.searchQuery = payload;
+    },
+    [actionChangeSearchParam](state, { payload }) {
+      console.log(payload.dataTitle);
+      state.searchParam = payload.dataTitle;
     },
     [actionSelectPostByClick](state, { payload }) {
       state.selectedPostId = payload;

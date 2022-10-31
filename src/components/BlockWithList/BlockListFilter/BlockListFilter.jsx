@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actionChangeSearchQuery } from 'redux/actions/postsActions';
+import { actionChangeSearchParam } from 'redux/actions/postsActions';
 // import PropTypes from 'prop-types'
 import { tableColTitles } from '../BlockTable/TableColTitles';
 
@@ -27,8 +28,9 @@ const BlockListFilter = () => {
   function onSearchParamClick({ ev, item }) {
     const { target } = ev;
     setSearchParam(item);
-    seIsSelectOpen(false)
-    console.log(target.textContent)
+    seIsSelectOpen(false);
+    dispatch(actionChangeSearchParam(searchParam));
+    console.log(target.textContent);
   }
   function handleSelectOpen(ev) {
     console.log(ev.target);
@@ -71,8 +73,8 @@ const BlockListFilter = () => {
           onChange={console.log(searchParam.name)}
         /> */}
         <div className={scss.inputParam} onClick={handleSelectOpen}>
-            {searchParam.name}
-          </div>
+          {searchParam.name}
+        </div>
         <ul className={classOpen}>
           {tableColTitles.map(item => (
             <li
