@@ -5,7 +5,7 @@ import cloneDeep from 'lodash.clonedeep';
 
 import { useSelector } from 'react-redux';
 import { selectPosts} from 'redux/selectors';
-import { applyFounder } from 'components/utils/founder';
+import { applyFounder } from 'components/BlockWithList/BlockUtils/founder';
 
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
@@ -28,7 +28,7 @@ const BlockTable = ({ titlesArr,tableParams }) => {
 
   useEffect(() => {
     setFoundedPosts(applyFounder({
-      param: searchParam,
+      searchParam: searchParam,
       searchQuery: searchQuery,
       data: tableDataCloned,
     }))

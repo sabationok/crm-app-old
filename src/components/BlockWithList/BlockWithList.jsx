@@ -8,13 +8,18 @@ import css from './BlockWithList.module.scss';
 
 const BlockWithList = ({ settings }) => {
   const {
-    blockParams: { blockFilter = false, blockTable = false, pageSelector },
+    blockParams: { blockFilter = false, blockTable = false },
     blockTableParams,
-    blockTableParams: { tableTitles = [],},
+    blockTableParams: { tableTitles = [] },
+    blockFilterParams,
   } = settings;
   return (
     <div className={css.block}>
-      <div className={css.header}>{blockFilter && <BlockListFilter />}</div>
+      <div className={css.header}>
+        {blockFilter && (
+          <BlockListFilter blockFilterParams={blockFilterParams} />
+        )}
+      </div>
       <div className={css.content}>
         <form className={css.overflow}>
           {blockTable && (

@@ -14,13 +14,25 @@ import scss from './OrdersPage.module.scss';
 const ProductsPage = props => {
   const dispatch = useDispatch();
 
+  const blockParams = {
+    blockFilter: true,
+    blockTable: true,
+    pageSelector: null,
+  };
+  const blockFilterParams = {tableTitles: [],searchAction:null,searchParamAction:null};
+  const blockTableParams = { tableTitles: [], tableData: [] };
+
   useEffect(() => {
   }, [dispatch]);
   return (
     <PageProvider>
       <div className={scss.pageFlex}>
         <section className={scss.sectionTopFlex}>
-        <Block />
+        <BlockWithList settings={{
+              blockParams: blockParams,
+              blockTableParams: blockTableParams,
+              blockFilterParams: blockFilterParams,
+            }}/>
         </section>
         <section className={scss.sectionBottomFlex}>
           <Block />

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { actionChangeSearchQuery } from 'redux/actions/postsActions';
-import { actionChangeSearchParam } from 'redux/actions/postsActions';
 // import PropTypes from 'prop-types'
-import { tableColTitles } from '../BlockTable/TableColTitles';
-import { applyFounder } from 'components/utils/founder';
+import { applyFounder } from 'components/BlockWithList/BlockUtils/founder';
 
 import scss from './BlockListFilter.module.scss';
 
-const BlockListFilter = () => {
+const BlockListFilter = ({ blockFilterParams }) => {
+  const {
+    tableTitles = [],
+    searchQueryAction,
+    searchParamAction,
+  } = blockFilterParams;
   const [searchQuery, setSearchQuery] = useState('');
   const [searchParam, setSearchParam] = useState({ name: '' });
   const [isSelectOpen, seIsSelectOpen] = useState(false);
@@ -26,15 +28,13 @@ const BlockListFilter = () => {
   }
   function handleFormSubmit(evt) {
     evt.preventDefault();
-    dispatch(actionChangeSearchQuery(searchQuery.trim()));
+    dispatch(searchQueryAction(searchQuery.trim()));
+    dispatch(searchParamAction(searchParam));
   }
   function onSearchParamClick({ evt, item }) {
     setSearchParam(item);
-    dispatch(actionChangeSearchParam(item));
-    console.log(searchParam);
     seIsSelectOpen(false);
   }
-
   function handleSelectOpen(ev) {
     seIsSelectOpen(!isSelectOpen);
   }
@@ -45,17 +45,22 @@ const BlockListFilter = () => {
   useEffect(() => {
     setFoundedData(
       applyFounder({
-        param: 'name',
+        searchParam: 'name',
         searchQuery: searchParam.name,
-        data: tableColTitles,
+        data: tableTitles.filter(el => el?.filter && el?.visible),
       })
     );
-  }, [searchParam.name]);
+  }, [searchParam, tableTitles]);
   useEffect(() => {
     if (searchQuery === '') {
-      dispatch(actionChangeSearchQuery(''));
+      dispatch(searchQueryAction(''));
     }
-  }, [dispatch, searchQuery]);
+  }, [dispatch, searchQuery, searchQueryAction]);
+  useEffect(() => {
+    if (searchParam.name === '') {
+      dispatch(searchParamAction(''));
+    }
+  }, [dispatch, searchParam, searchParamAction]);
   return (
     <div className={scss.filterContainer}>
       <form
