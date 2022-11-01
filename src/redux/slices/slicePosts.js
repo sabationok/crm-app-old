@@ -5,11 +5,24 @@ import {
   fetchDeletePost,
   fetchEditPost,
 } from 'redux/thunks/postsThunks';
+import {
+  actionChangeSearchQuery,
+  actionMarkCheckbox,
+  actionUnmarkCheckbox,
+  actionDeletePost,
+  actionSelectPostByClick,
+  actionMarkAllCheckboxes,
+  actionChangeSearchParam,
+} from 'redux/actions/postsActions';
 const initialState = {
   posts: [],
   isloading: false,
   lastEditedId: null,
   error: null,
+  markedPosts: [],
+  selectedPostId: null,
+  searchQuery: '',
+  searchParam: '',
 };
 
 export const postsSlice = createSlice({
@@ -66,6 +79,23 @@ export const postsSlice = createSlice({
     [fetchEditPost.pending](state, action) {
       state.isLoading = true;
     },
+    
+    [actionChangeSearchQuery](state, { payload }) {
+      state.searchQuery = payload;
+    },
+    [actionChangeSearchParam](state, { payload }) {
+      console.log(payload);
+      state.searchParam = payload.dataTitle;
+    },
+    [actionSelectPostByClick](state, { payload }) {
+      state.selectedPostId = payload;
+    },
+    [actionMarkCheckbox](state, action) {},
+    [actionMarkAllCheckboxes](state, action) {
+      console.log('marked all checkboxes');
+    },
+    [actionUnmarkCheckbox](state, action) {},
+    [actionDeletePost](state, action) {},
   },
 });
 

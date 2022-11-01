@@ -1,12 +1,13 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import BlockPortal from './BlockPportal';
-import { usePage } from 'components/contexts/PageContext';
+import { usePage } from 'contexts/PageContext';
 
 import scss from './Block.module.scss';
 
 const Block = ({ id }) => {
   let { selectedItemId } = usePage();
+  console.log('small block render')
   return (
     <div className={scss.block}>
       <div className={scss.header}>{selectedItemId}</div>

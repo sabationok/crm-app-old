@@ -3,7 +3,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { filterReducer } from './slices/sliceFilter';
 import { userReducer } from './slices/authSlice';
 import { postsReducer } from './slices/slicePosts';
-import { postsBlockReducer } from './slices/slicePostsBlock';
+// import { postsBlockReducer } from './slices/slicePostsBlock';
 import {
   persistStore,
   persistReducer,
@@ -25,7 +25,7 @@ const persistConfig = {
 const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 const rootReducer = combineReducers({
-  postsBlock: postsBlockReducer,
+  // postsBlock: postsBlockReducer,
   posts: postsReducer,
   filter: filterReducer,
   auth: persistedUserReducer,

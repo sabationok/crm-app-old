@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import cloneDeep from 'lodash.clonedeep';
 
 import { useSelector } from 'react-redux';
-import { selectPosts, selectPostsBlock } from 'redux/selectors';
+import { selectPosts} from 'redux/selectors';
 import { applyFounder } from 'components/utils/founder';
 
 import TableHead from './TableHead/TableHead';
@@ -12,57 +12,37 @@ import TableBody from './TableBody/TableBody';
 
 import css from './BlockTable.module.css';
 
-const BlockTable = ({ titlesArr }) => {
-  const { posts } = useSelector(selectPosts);
-  const { searchQuery, searchParam } = useSelector(selectPostsBlock);
+const BlockTable = ({ titlesArr,tableParams }) => {
+  const {tableTitles,tableData}=tableParams
+  const { searchQuery, searchParam } = useSelector(selectPosts);
   const [selectedAll, setSelectedAll] = useState(false);
-  const [tableData, setTableDate] = useState([]);
+  const [tableDataCloned, setTableDateCloned] = useState([]);
   const [foundedPosts, setFoundedPosts] = useState([]);
 
   useEffect(() => {
-    if (posts.length !== 0) {
-      setTableDate(cloneDeep(posts));
+    if (tableData.length !== 0) {
+      setTableDateCloned(cloneDeep(tableData));
       return;
     }
-  }, [posts]);
+  }, [tableData]);
 
-  console.log(tableData);
   useEffect(() => {
-    // function applyFilter() {
-    //   setFoundedPosts(
-    //     tableData.filter(
-    //       ({ name }) =>
-    //         !(
-    //           searchQuery &&
-    //           !name.toLowerCase().includes(searchQuery.toLowerCase())
-    //         )
-    //     )
-    //   );
-    // }
-    // applyFilter();
-    // applyFounder({
-    //   param: searchParam,
-    //   searchQuery: searchQuery,
-    //   data: tableData,
-    //   setFoundedData: setFoundedPosts,
-    // });
     setFoundedPosts(applyFounder({
       param: searchParam,
       searchQuery: searchQuery,
-      data: tableData,
-      setFoundedData: setFoundedPosts,
+      data: tableDataCloned,
     }))
-  }, [searchParam, searchQuery, tableData]);
+  }, [searchParam, searchQuery, tableDataCloned]);
 
   return (
     <table className={[css.table, css.orders]}>
       <TableHead
-        titles={titlesArr}
+        titles={tableTitles}
         setSelectedAll={setSelectedAll}
         selectedAll={selectedAll}
       />
       <TableBody
-        titles={titlesArr}
+        titles={tableTitles}
         tableData={foundedPosts}
         selectedAll={selectedAll}
       />

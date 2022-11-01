@@ -3,21 +3,26 @@ import React from 'react';
 
 import BlockListFilter from './BlockListFilter/BlockListFilter';
 import BlockTable from './BlockTable/BlockTable';
-import { tableColTitles } from './BlockTable/TableColTitles';
-// import { useBlockWithList } from 'components/contexts/TableContext';
 
 import css from './BlockWithList.module.scss';
 
-const BlockWithList = () => {
+const BlockWithList = ({ settings }) => {
+  const {
+    blockParams: { blockFilter = false, blockTable = false, pageSelector },
+    blockTableParams,
+    blockTableParams: { tableTitles = [],},
+  } = settings;
   return (
     <div className={css.block}>
-      <div className={css.header}>
-        <BlockListFilter />
-        <div id={'blockNotif'}></div>
-      </div>
+      <div className={css.header}>{blockFilter && <BlockListFilter />}</div>
       <div className={css.content}>
         <form className={css.overflow}>
-          <BlockTable titlesArr={tableColTitles}/>
+          {blockTable && (
+            <BlockTable
+              titlesArr={tableTitles}
+              tableParams={blockTableParams}
+            />
+          )}
         </form>
       </div>
       <div className={css.footer}></div>
