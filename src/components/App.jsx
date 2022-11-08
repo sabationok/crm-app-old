@@ -7,40 +7,32 @@ import MainPage from './Pages/MainPage/MainPage';
 import NotFoundPage from './Pages/NotFound/NotFoundPage';
 import AppLoader from './AppLoader/AppLoader';
 
+import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
+
+import { useDispatch } from 'react-redux';
+import { setDeviceAction } from 'redux/actions/postsActions';
+
 import scss from './App.module.scss';
 
 const ProductsPage = lazy(() => import('./Pages/ProductsPage/ProductsPage'));
 const OrdersPage = lazy(() => import('./Pages/OrdersPage/OrdersPage'));
+const ReturnsPage = lazy(() => import('./Pages/ReturnsPage/ReturnsPage'));
 export const App = () => {
   return (
     <div className={scss.app}>
       <Layout>
-        <Suspense>
+        <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>
             <Route index element={<MainPage />} />
-
-            <Route path="main" element={<MainPage />} />
-            <Route
-              path="products"
-              element={
-                <Suspense fallback={<AppLoader isLoading={true}/>}>
-                  <ProductsPage />
-                </Suspense>
-              }
-            />
-            <Route
-              path="orders"
-              element={
-                <Suspense fallback={<AppLoader isLoading={true}/>}>
-                  <OrdersPage />
-                </Suspense>
-              }
-            />
+            <Route path="home" element={<MainPage />} />
+            <Route path="products" element={<ProductsPage />} />
+            <Route path="orders" element={<OrdersPage />} />
+            <Route path="returns" element={<ReturnsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </Layout>
-      {/* <AppLoader isLoading={isLoading}/> */}
+      <DeviceTypeInformer />
     </div>
   );
 };

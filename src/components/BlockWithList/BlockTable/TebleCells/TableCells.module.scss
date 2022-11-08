@@ -1,0 +1,82 @@
+.title,
+.coll {
+  padding: 8px;
+
+  height: 100%;
+  color: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+
+  background-color: inherit;
+}
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.coll {
+  display: flex;
+  align-items: center;
+
+  // transition: all var(--timing-function__main);
+  &:hover {
+    background-color: rgba(103, 202, 255, 0.8);
+    outline: 2px solid rgb(44, 143, 255);
+  }
+  &.selected {
+    background-color: rgba(103, 202, 255, 0.8);
+    outline: 2px solid rgb(44, 143, 255);
+  }
+  & .cellInner {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.cellInnerWrap {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  height: 80%;
+  width: 100%;
+}
+.empty {
+  justify-content: center;
+}
+.sku {
+}
+.name {
+}
+.authorName {
+}
+.authorId {
+}
+.price {
+  justify-content: flex-end;
+}
+.currency {
+  justify-content: flex-end;
+}
+.commision {
+  justify-content: flex-end;
+}
+.section {
+}
+.parentCategory {
+}
+.category {
+}
+.stock {
+  justify-content: flex-end;
+}
+.productionTime {
+  justify-content: flex-end;
+}
+.text {
+}

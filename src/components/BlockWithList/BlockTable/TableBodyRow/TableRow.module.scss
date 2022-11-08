@@ -1,0 +1,36 @@
+.thRow,
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(100px, 170px));
+}
+.thRow {
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+
+  min-height: 30px;
+
+  color: #fff;
+  background-color: rgb(96, 96, 96);
+}
+.row {
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  min-height: 28px;
+
+  border-bottom: 1px solid rgb(160, 160, 160);
+
+  // transition: all var(--timing-function__main);
+
+  &:hover {
+    background-color: rgba(103, 202, 255, 0.5);
+    outline: 2px solid rgb(44, 143, 255);
+  }
+  &.selected {
+    background-color: rgba(103, 202, 255, 0.5);
+    outline: 2px solid rgb(44, 143, 255);
+  }
+}

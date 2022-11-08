@@ -17,22 +17,30 @@ const ProductsPage = props => {
   const blockParams = {
     blockFilter: true,
     blockTable: true,
-    pageSelector: null,
+    pageSelector: state=>state,
   };
-  const blockFilterParams = {tableTitles: [],searchAction:null,searchParamAction:null};
-  const blockTableParams = { tableTitles: [], tableData: [] };
+  const blockFilterParams = {
+    tableTitles: [],
+    searchQueryAction: ()=>{},
+    searchParamAction: ()=>{},
+  };
+  const blockTableParams = {
+    tableTitles: [],
+    tableData: [],
+  };
 
-  useEffect(() => {
-  }, [dispatch]);
+  useEffect(() => {}, [dispatch]);
   return (
     <PageProvider>
       <div className={scss.pageFlex}>
         <section className={scss.sectionTopFlex}>
-        <BlockWithList settings={{
+          <BlockWithList
+            settings={{
               blockParams: blockParams,
               blockTableParams: blockTableParams,
               blockFilterParams: blockFilterParams,
-            }}/>
+            }}
+          />
         </section>
         <section className={scss.sectionBottomFlex}>
           <Block />

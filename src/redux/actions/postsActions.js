@@ -13,3 +13,5 @@ export const actionSelectPostByClick = createAction(
 export const actionChangeSearchParam = createAction(
   'posts/actionChangeSearchParam'
 );
+
+export const setDeviceAction = createAction('device/setDeviceAction')

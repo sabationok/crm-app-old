@@ -12,9 +12,9 @@ const BlockListFilter = ({ blockFilterParams }) => {
     searchParamAction,
   } = blockFilterParams;
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchParam, setSearchParam] = useState({ name: '' });
-  const [isSelectOpen, seIsSelectOpen] = useState(false);
-  const [foundedData, setFoundedData] = useState([]);
+  const [searchParam, setSearchParam] = useState({ name: '' }); //!
+  const [isSelectOpen, seIsSelectOpen] = useState(false); //!
+  const [foundedData, setFoundedData] = useState([]); //!
   const dispatch = useDispatch();
 
   const classOpen = [
@@ -36,6 +36,10 @@ const BlockListFilter = ({ blockFilterParams }) => {
     seIsSelectOpen(false);
   }
   function handleSelectOpen(ev) {
+    let { target } = ev;
+    
+    target.classList.toggle(scss.isOpen)
+
     seIsSelectOpen(!isSelectOpen);
   }
   function handleChangeSearchParamInput(evt) {
@@ -81,6 +85,7 @@ const BlockListFilter = ({ blockFilterParams }) => {
             }}
           />
         </div>
+
         <div className={scss.customSelect}>
           <input
             className={scss.inputParam}
@@ -105,6 +110,7 @@ const BlockListFilter = ({ blockFilterParams }) => {
             ))}
           </ul>
         </div>
+
         <button className={scss.button} type="submit">
           Шукати
         </button>
