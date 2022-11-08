@@ -4,12 +4,13 @@ import BlockTable from './BlockTableList/BlockTable';
 
 import BlockContext from './BlockContext';
 
-import css from './BlockWithList.module.scss';
+import css from './BlockWithAcordeonList.module.scss';
 
-const BlockWithList = ({ settings }) => {
+const BlockWithAcordeonList = ({ settings }) => {
   const {
     blockParams: { blockFilter = false, blockTable = false },
     blockTableParams,
+    blockTableParams: { tableTitles = [] },
     blockFilterParams,
   } = settings;
   return (
@@ -22,7 +23,12 @@ const BlockWithList = ({ settings }) => {
         </div>
         <div className={css.content}>
           <form className={css.overflow}>
-            {blockTable && <BlockTable tableParams={blockTableParams} />}
+            {blockTable && (
+              <BlockTable
+                titlesArr={tableTitles}
+                tableParams={blockTableParams}
+              />
+            )}
           </form>
         </div>
         <div className={css.footer}></div>
@@ -31,4 +37,5 @@ const BlockWithList = ({ settings }) => {
   );
 };
 
-export default BlockWithList;
+
+export default BlockWithAcordeonList;

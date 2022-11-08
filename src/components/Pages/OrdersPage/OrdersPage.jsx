@@ -1,35 +1,39 @@
 import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import BlockWithList from 'components/BlockWithList/BlockWithList';
 import Block from 'components/Block/Block';
 import { PageProvider } from 'contexts/PageContext';
-import { useDispatch } from 'react-redux';
-// import ModalPortal from 'components/ModalPortal/ModalPortal';
-// import AppLoader from 'components/AppLoader/AppLoader';
-// import { selectOrders } from 'redux/selectors';
-// import { fetchAllOrders } from 'redux/thunks/OrdersThunks';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllOrders } from 'redux/orders/ordersThunks';
+import { selectOrders } from 'redux/selectors';
+import { actionChangeSearchQuery,actionChangeSearchParam } from 'redux/orders/ordersActions';
+
+import { ordersTableTitles } from 'components/Pages/OrdersPage/ordersTableTitles';
 
 import scss from './OrdersPage.module.scss';
 
 const ProductsPage = props => {
+  const orders = useSelector(selectOrders);
+  console.log(orders)
   const dispatch = useDispatch();
-
   const blockParams = {
     blockFilter: true,
     blockTable: true,
-    pageSelector: state=>state,
+    pageSelector: selectOrders,
   };
   const blockFilterParams = {
-    tableTitles: [],
-    searchQueryAction: ()=>{},
-    searchParamAction: ()=>{},
+    tableTitles: ordersTableTitles,
+    searchQueryAction: actionChangeSearchQuery,
+    searchParamAction: actionChangeSearchParam,
   };
   const blockTableParams = {
-    tableTitles: [],
-    tableData: [],
+    tableTitles: ordersTableTitles,
+    tableData: orders,
   };
 
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchAllOrders());
+  }, [dispatch]);
   return (
     <PageProvider>
       <div className={scss.pageFlex}>
@@ -51,6 +55,11 @@ const ProductsPage = props => {
   );
 };
 
-// ProductsPage.propTypes = {}
+ProductsPage.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
 
 export default ProductsPage;

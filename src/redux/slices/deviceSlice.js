@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setDeviceAction } from 'redux/actions/postsActions';
+import { setDeviceAction } from 'redux/posts/postsActions';
 
 const initialState = {
   isMobile: false,

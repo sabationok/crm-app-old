@@ -6,7 +6,7 @@ import Block from 'components/Block/Block';
 import { PageProvider } from 'contexts/PageContext';
 import { useDispatch } from 'react-redux';
 // import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllPosts } from 'redux/thunks/postsThunks';
+import { fetchAllPosts } from 'redux/posts/postsThunks';
 // import { selectPosts } from 'redux/selectors';
 // import { actionChangeSearchQuery } from 'redux/actions/postsActions';
 // import { actionChangeSearchParam } from 'redux/actions/postsActions';

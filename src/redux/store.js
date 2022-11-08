@@ -2,8 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import { filterReducer } from './slices/sliceFilter';
 import { userReducer } from './slices/authSlice';
-import { postsReducer } from './slices/slicePosts';
+import { postsReducer } from './posts/slicePosts';
 import { deviceReduser } from './slices/deviceSlice';
+import { ordersReducer } from './orders/ordersSlice';
 // import { postsBlockReducer } from './slices/slicePostsBlock';
 import {
   persistStore,
@@ -28,6 +29,7 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 const rootReducer = combineReducers({
   // postsBlock: postsBlockReducer,
   posts: postsReducer,
+  orders: ordersReducer,
   filter: filterReducer,
   auth: persistedUserReducer,
   device: deviceReduser,

@@ -10,7 +10,7 @@ import AppLoader from './AppLoader/AppLoader';
 import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import { useDispatch } from 'react-redux';
-import { setDeviceAction } from 'redux/actions/postsActions';
+import { setDeviceAction } from 'redux/posts/postsActions';
 
 import scss from './App.module.scss';
 
@@ -24,7 +24,7 @@ export const App = () => {
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>
             <Route index element={<MainPage />} />
-            <Route path="home" element={<MainPage />} />
+            <Route path="main" element={<MainPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="orders" element={<OrdersPage />} />
             <Route path="returns" element={<ReturnsPage />} />

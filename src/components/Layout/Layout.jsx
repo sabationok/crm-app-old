@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import css from './Layout.module.scss';
@@ -7,17 +7,23 @@ const Layout = ({ children }) => {
   return (
     <>
       <header className={css.header}>
-        <a className={css.logoLink} href="./">
-          <span className={css.logoText}>LO</span>
-          <span className={css.logoText}>GO</span>
-        </a>
+        <Link className={css.logoLink} to="main">
+          <span className={css.logoText}>L</span>
+          <span className={css.logoText}>O</span>
+          <span className={css.logoText}>G</span>
+          <span className={css.logoText}>O</span>
+        </Link>
         <div className={css.menuBox}>
           <button className={css.button} type="button">
             MENU
           </button>
           <ul className={css.navList}>
             <li>
-              <NavLink className={css.navLink} to="/main" rel="noopener noreferrer">
+              <NavLink
+                className={css.navLink}
+                to="main"
+                rel="noopener noreferrer"
+              >
                 Головна
               </NavLink>
               <NavLink
