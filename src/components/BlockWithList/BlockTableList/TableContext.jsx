@@ -12,8 +12,6 @@ const TableContext = ({ children, value }) => {
   const {
     tableParams: { tableTitles, tableData },
   } = value;
-  console.log(tableTitles)
-// console.log(tableData)
 
   const { searchQuery, searchParam } = useSelector(selectOrders);
   const [selectedAll, setSelectedAll] = useState(false);

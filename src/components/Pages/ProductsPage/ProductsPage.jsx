@@ -9,7 +9,7 @@ import { fetchAllPosts } from 'redux/posts/postsThunks';
 import { selectPosts } from 'redux/selectors';
 import { actionChangeSearchQuery } from 'redux/posts/postsActions';
 import { actionChangeSearchParam } from 'redux/posts/postsActions';
-import { productsTableTitles } from 'components/Pages/ProductsPage/productsTableTitles';
+import { productsTableTitles } from 'data/productsTableTitles';
 
 import scss from './ProductsPage.module.scss';
 

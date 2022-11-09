@@ -17,10 +17,7 @@ const BlockListFilter = ({ blockFilterParams }) => {
   const [foundedData, setFoundedData] = useState([]); //!
   const dispatch = useDispatch();
 
-  const classOpen = [
-    scss.selectList,
-    isSelectOpen ? scss.selectShown : scss.selectHidden,
-  ].join(' ');
+  const classOpen = [scss.customSelect, isSelectOpen && scss.isOpen].join(' ');
 
   function onInputChange(evt) {
     let { target } = evt;
@@ -31,16 +28,12 @@ const BlockListFilter = ({ blockFilterParams }) => {
     dispatch(searchQueryAction(searchQuery.trim()));
     dispatch(searchParamAction(searchParam));
   }
+  function handleToggleOpenSelect() {
+    seIsSelectOpen(!isSelectOpen);
+  }
   function onSearchParamClick({ evt, item }) {
     setSearchParam(item);
-    seIsSelectOpen(false);
-  }
-  function handleSelectOpen(ev) {
-    let { target } = ev;
-
-    target.classList.toggle(scss.isOpen);
-
-    seIsSelectOpen(!isSelectOpen);
+    handleToggleOpenSelect();
   }
   function handleChangeSearchParamInput(evt) {
     let { target } = evt;
@@ -73,16 +66,15 @@ const BlockListFilter = ({ blockFilterParams }) => {
           handleFormSubmit(evt);
         }}
       >
-        <div className={scss.customSelect}>
+        <div className={classOpen} onClick={handleToggleOpenSelect}>
           <input
             className={scss.inputParam}
             type="text"
             placeholder="Параметр"
             value={searchParam.name}
-            onClick={handleSelectOpen}
             onChange={handleChangeSearchParamInput}
           />
-          <ul className={classOpen}>
+          <ul className={scss.selectList}>
             {foundedData.map(item => (
               <li
                 key={item.id}

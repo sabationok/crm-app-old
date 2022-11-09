@@ -17,7 +17,7 @@ const BlockTable = ({ tableParams }) => {
     >
       <div className={[scss.table, scss.orders]}>
         <TableHead/>
-        {/* <TableBody/> */}
+        <TableBody/>
       </div>
     </TableContext>
   );

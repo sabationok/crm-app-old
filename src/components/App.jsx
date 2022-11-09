@@ -3,14 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
 import MainPage from './Pages/MainPage/MainPage';
-// import ProductsPage from './Pages/ProductsPage/ProductsPage';
 import NotFoundPage from './Pages/NotFound/NotFoundPage';
 import AppLoader from './AppLoader/AppLoader';
 
 import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
-
-import { useDispatch } from 'react-redux';
-import { setDeviceAction } from 'redux/posts/postsActions';
 
 import scss from './App.module.scss';
 

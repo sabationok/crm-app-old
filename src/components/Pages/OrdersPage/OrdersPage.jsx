@@ -8,7 +8,7 @@ import { fetchAllOrders } from 'redux/orders/ordersThunks';
 import { selectOrders } from 'redux/selectors';
 import { actionChangeSearchQuery,actionChangeSearchParam } from 'redux/orders/ordersActions';
 
-import { ordersTableTitles } from 'components/Pages/OrdersPage/ordersTableTitles';
+import { ordersTableTitles } from 'data/ordersTableTitles';
 
 import scss from './OrdersPage.module.scss';
 

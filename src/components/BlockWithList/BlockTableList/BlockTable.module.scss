@@ -15,5 +15,5 @@
 .tBody {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 50px;
+  grid-auto-rows: auto;
 }

@@ -1,9 +1,26 @@
-import React from 'react'
+import React from 'react';
+// import PropTypes from 'prop-types';
+import { useRow } from '../TableRows/RowContext';
 
-const CellList = () => {
+import s from './TableCells.module.scss';
+
+const CellList = ({ title, idx, className = '' }) => {
+  const { rowData } = useRow();
+  const content =
+    rowData[title?.dataTitle].length !== 0 ? rowData[title?.dataTitle].join(', ') : '-//-//-';
+  const actionClassName = content !== '-//-//-' ? s[title?.action] : s.empty;
+  const classNames = [s.coll, actionClassName, ...className].join(' ');
+  const style = {
+    width: `${title?.width}px`,
+  };
+
   return (
-    <div>CellList</div>
-  )
-}
+    <div style={style} className={classNames} title={content}>
+      <span className={s.cellInner}>{content}</span>
+    </div>
+  );
+};
 
-export default CellList
+CellList.propTypes = {};
+
+export default CellList;
