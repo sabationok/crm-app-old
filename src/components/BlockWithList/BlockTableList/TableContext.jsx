@@ -32,15 +32,15 @@ const TableContext = ({ children, value }) => {
     }
   }, [tableData]);
 
-  // useEffect(() => {
-  //   setFoundedPosts(
-  //     applyFounder({
-  //       searchParam: searchParam,
-  //       searchQuery: searchQuery,
-  //       data: tableDataCloned,
-  //     })
-  //   );
-  // }, [searchParam, searchQuery, tableDataCloned]);
+  useEffect(() => {
+    setFoundedPosts(
+      applyFounder({
+        searchParam: searchParam,
+        searchQuery: searchQuery,
+        data: tableDataCloned,
+      })
+    );
+  }, [searchParam, searchQuery, tableDataCloned]);
 
   return (
     <TableCNTXT.Provider

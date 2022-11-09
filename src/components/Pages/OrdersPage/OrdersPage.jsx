@@ -13,8 +13,8 @@ import { ordersTableTitles } from 'components/Pages/OrdersPage/ordersTableTitles
 import scss from './OrdersPage.module.scss';
 
 const ProductsPage = props => {
-  const orders = useSelector(selectOrders);
-  console.log(orders)
+  const {orders} = useSelector(selectOrders);
+
   const dispatch = useDispatch();
   const blockParams = {
     blockFilter: true,
