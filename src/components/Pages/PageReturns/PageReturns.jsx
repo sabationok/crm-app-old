@@ -9,15 +9,15 @@ const PageReturns = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Returns list" iconId="list" />
+          <Block blockFilter title="Список повернень" iconId="list" />
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Return info" iconId="info" />
+            <Block title="Деталі" iconId="return" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Inspect" iconId="inspect" />
+            <Block title="Інспекція" iconId="inspect" />
           </div>
         </section>
       </div>

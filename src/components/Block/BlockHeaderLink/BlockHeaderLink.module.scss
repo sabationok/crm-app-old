@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 30px minmax(100px, 1fr) 2fr 30px 30px;
+  grid-template-columns: 24px minmax(120px, 1fr) 2fr 30px 30px;
   grid-template-rows: 30px;
   gap: 8px;
   align-items: center;
@@ -40,6 +40,15 @@
     text-overflow: ellipsis;
   }
 }
+.titleInner {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .title {
+  padding: 4px;
   text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

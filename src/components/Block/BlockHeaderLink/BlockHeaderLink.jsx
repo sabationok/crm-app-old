@@ -5,16 +5,14 @@ import SvgIcon from 'components/SvgIcon/SvgIcon';
 
 import s from './BlockHeaderLink.module.scss';
 
-const BlockHeaderLink = ({
-  title = 'Title',
-  subTitle = 'link',
-  iconId = 'info',
-}) => {
+const BlockHeaderLink = ({ title = 'Title', subTitle = 'link', iconId = 'info' }) => {
   return (
     <div className={s.header}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
-      <span className={s.title}>{title}</span>
+      <span className={s.title}>
+        <span className={s.titleInner} title={title}>{title}</span>
+      </span>
       <span className={s.headerLink}>
         <span className={s.subTitle} title={subTitle}>
           {subTitle}

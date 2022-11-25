@@ -1,7 +1,7 @@
 import React from 'react';
 import sprite from 'img/sprite';
 import s from './SvgIcon.module.scss';
-const SvgIcon = ({ iconId, style, size = '', svgClass = '' }) => {
+const SvgIcon = ({ iconId='info', style, size = '', svgClass = '' }) => {
   const styles = {
     ...style,
     width: size,
@@ -11,7 +11,7 @@ const SvgIcon = ({ iconId, style, size = '', svgClass = '' }) => {
   return (
     <div className={s.iconBox} style={styles}>
       <svg className={svgClassArr}>
-        <use href={`${sprite}#icon-${iconId.toLowerCase()}`}></use>
+        <use href={`${sprite}#icon-${iconId}`}></use>
       </svg>
     </div>
   );

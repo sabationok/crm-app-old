@@ -13,7 +13,7 @@
   background-color: var(--brand_clr__2);
   box-shadow: var(--header-shadow);
 
-  fill: var(--brand_clr__1);;
+  fill: var(--brand_clr__1);
 }
 .logo {
   &Link {
@@ -99,6 +99,7 @@
       pointer-events: none;
 
       overflow: hidden;
+      fill: #fff;
 
       background-color: var(--brand_clr__2);
       box-shadow: var(--header-shadow);
@@ -130,9 +131,12 @@
 
       transition: all var(--timing-function__main);
     }
-
-    & .navLink {
-      display: block;
+    & .navLink,
+    & .navLinkActive {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
       text-align: left;
 
       font-size: 14px;
@@ -151,6 +155,10 @@
       &:hover {
         background-color: var(--brand_clr__1);
       }
+    }
+    & .navLinkActive {
+      // fill: var(--brand_clr__1);
+      background-color: var(--brand_clr__1);
     }
   }
 }

@@ -48,15 +48,15 @@ const PageOrders = () => {
               blockFilterParams: blockFilterParams,
             }}
           /> */}
-          <Block blockFilter title="Orders" iconId="list" />
+          <Block blockFilter title="Список замовлень" iconId="list" />
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Order info" iconId="info" />
+            <Block title="Деталі" iconId="info" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="TTN" iconId="ttn" />
+            <Block title="ТТН" iconId="ttn" />
           </div>
         </section>
       </div>

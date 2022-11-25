@@ -5,18 +5,17 @@ import { NavLink } from 'react-router-dom';
 
 import s from './Header.module.scss';
 const Header = () => {
-  // const pageLinks = [
-  //   { title: 'Головна', path: 'main' },
-  //   { title: 'Товари', path: 'products' },
-  //   { title: 'Замовлення', path: 'orders' },
-  //   { title: 'Повернення', path: 'returns' },
-  //   { title: 'Налаштування', path: 'settings' },
-  //   { title: 'Контрагенти', path: 'counterParty' },
-  //   { title: 'Статистика', path: 'statistics' },
-  //   { title: '', path: '' },
-  //   { title: '', path: '' },
-  //   { title: 'Вихід', path: '#' },
-  // ];
+  const pageLinks = [
+    { title: 'Головна', path: 'main', iconId: '' },
+    { title: 'Товари', path: 'products', iconId: 'storage' },
+    { title: 'Замовлення', path: 'orders', iconId: 'list' },
+    { title: 'Повернення', path: 'returns', iconId: 'return' },
+    { title: 'Статистика', path: 'statistics', iconId: 'stat' },
+    { title: 'Контрагенти', path: 'counterParty', iconId: 'persons' },
+    { title: 'Налаштування', path: 'settings', iconId: 'settings' },
+    { title: 'Адмін панель', path: 'admin', iconId: 'admin' },
+    { title: 'Вихід', path: 'logOut', iconId: 'logout' },
+  ];
 
   return (
     <header className={s.header}>
@@ -25,31 +24,14 @@ const Header = () => {
           <span className={s.logoText}>LOGO</span>
         </div>
         <ul className={s.navList}>
-          <li>
-            <NavLink className={s.navLink} to="main">
-              Головна
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={s.navLink} to="products">
-              Товари
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={s.navLink} to="orders">
-              Замовлення
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={s.navLink} to="returns">
-              Повернення
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={s.navLink} to="#">
-              Вихід
-            </NavLink>
-          </li>
+          {pageLinks.map(item => (
+            <li key={item.path}>
+              <NavLink to={item.path} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
+                {item.iconId && <SvgIcon iconId={item.iconId} size="24px" />}
+                <span>{item.title}</span>
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 

@@ -29,7 +29,7 @@ const BlockHeaderFilter = ({
         size="30px"
         onClick={hadleToggleFilter}
       />
-      {!title && <span className={s.title}>{title}</span>}
+      {title && <span className={s.title}>{title}</span>}
     </div>
   );
 };
