@@ -1,0 +1,45 @@
+.header {
+  display: grid;
+  grid-template-columns: 30px minmax(100px, 1fr) 2fr 30px 30px;
+  grid-template-rows: 30px;
+  gap: 8px;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 6;
+
+  width: 100%;
+  padding: 0 8px;
+
+  color: #f0f0f0;
+  fill: #f0f0f0;
+
+  background-color: var(--brand_clr__2);
+}
+
+.headerLink {
+  padding: 4px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--brand_clr__1);
+    outline-style: none;
+  }
+  & .subTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.title {
+  text-transform: capitalize;
+}

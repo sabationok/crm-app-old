@@ -1,15 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalPortal from './ModalPortal/ModalPortal';
-import css from './modal.module.css';
+import SvgIconClose from './SvgIconClose/SvgIconClose';
+import s from './ModalCustom.module.scss';
 
 //* ""handleToggle"" функція яка тоглить стейт модалки
 //* ""defaultBtn"" BOOLEAN чи потрібна дефолтна кнопка закриття
 //* ""children"" вміст модалки
 export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
-const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+
+const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
 
@@ -20,7 +22,6 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
   function handleToggleModalBackdrop(evt) {
     let { target, currentTarget } = evt;
     if (target === currentTarget) {
-      console.log('backdrop close modal');
       handleToggle();
       setIsOpen(!isOpen);
     }
@@ -30,7 +31,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
     let { code } = evt;
     if (code === 'Escape') {
       handleToggle();
-      setIsOpen(!isOpen);
+      // setIsOpen(!isOpen);
       window.removeEventListener('keydown', handleToggleModalByEsc);
     }
   }
@@ -46,11 +47,11 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
   return (
     <ModalPortal>
       <ModalContext.Provider value={{ isOpen, handleToggleModal }}>
-        <div className={css.Backdrop} onClick={handleToggleModalBackdrop}>
-          <div className={css.Modal}>
+        <div className={s.Backdrop} onClick={handleToggleModalBackdrop}>
+          <div className={s.Modal}>
             {defaultBtn && (
-              <button className={css.closeModal} onClick={handleToggleModal}>
-                Close
+              <button className={s.closeModal} onClick={handleToggleModal}>
+                <SvgIconClose size={'100%'}/>
               </button>
             )}
             {children}

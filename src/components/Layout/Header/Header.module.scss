@@ -1,0 +1,156 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+
+  width: 100%;
+
+  padding: 4px 8px;
+  background-color: var(--brand_clr__2);
+  box-shadow: var(--header-shadow);
+
+  fill: var(--brand_clr__1);;
+}
+.logo {
+  &Link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: transparent;
+    background-color: var(--brand_clr__1);
+
+    width: fit-content;
+    height: 28px;
+    min-width: 28px;
+    padding: 8px;
+
+    cursor: pointer;
+  }
+  &Text {
+    text-align: center;
+    font-family: 'Ralaway', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.09em;
+    color: var(--brand_clr__2);
+
+    cursor: pointer;
+  }
+}
+.userInfo {
+  padding: 4px;
+  color: #fff;
+  & .name {
+    color: inherit;
+  }
+  & .userId {
+    color: inherit;
+  }
+}
+
+.adminName {
+  color: var(--brand_clr__1);
+  & .name {
+    color: inherit;
+  }
+  .userId {
+    color: inherit;
+  }
+  @media screen and (max-width: 480) {
+    font-size: 10px;
+  }
+}
+.menu {
+  &Box {
+    display: block;
+    position: relative;
+
+    &:focus,
+    &:hover {
+      & .profileInfoList,
+      & .navList {
+        opacity: 1;
+        transform: scaleX(1);
+        visibility: visible;
+        pointer-events: all;
+      }
+    }
+    & .navList {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 101;
+
+      min-width: 230px;
+
+      padding: 9px 1px;
+
+      transform-origin: left;
+      transform: scaleX(0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      overflow: hidden;
+
+      background-color: var(--brand_clr__2);
+      box-shadow: var(--header-shadow);
+
+      transition: all var(--timing-function__main);
+    }
+
+    & .profileInfoList {
+      display: block;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 101;
+
+      min-width: 250px;
+
+      padding: 9px 1px;
+
+      transform-origin: right;
+      transform: scaleX(0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      overflow: hidden;
+
+      background-color: var(--brand_clr__2);
+      box-shadow: var(--header-shadow);
+
+      transition: all var(--timing-function__main);
+    }
+
+    & .navLink {
+      display: block;
+      text-align: left;
+
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.06em;
+
+      width: 100%;
+      color: #fff;
+
+      padding: 8px 16px;
+
+      background-color: inherit;
+      border-style: none;
+      border: 1px solid transparent;
+      transition: all var(--timing-function__main);
+      &:hover {
+        background-color: var(--brand_clr__1);
+      }
+    }
+  }
+}

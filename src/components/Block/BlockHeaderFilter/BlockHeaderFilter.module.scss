@@ -1,0 +1,37 @@
+.header {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  grid-template-rows: 30px;
+  gap: 8px;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 6;
+
+  width: 100%;
+  padding: 0 8px;
+
+  color: #f0f0f0;
+  fill: #f0f0f0;
+
+  background-color: var(--brand_clr__2);
+}
+.blockLink {
+  white-space: nowrap;
+
+  color: #fff;
+
+  color: var(--brand_clr__1);
+}
+.link {
+  &:hover,
+  &:focus {
+    outline-style: none;
+  }
+}
+.title{
+  text-transform: capitalize;
+}
+

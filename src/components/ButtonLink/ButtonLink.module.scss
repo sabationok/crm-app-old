@@ -1,0 +1,61 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-style: inherit;
+  font-size: 16px;
+  font-weight: 700;
+
+  padding: 4px;
+
+  background-color: transparent;
+
+  border-style: none;
+  border-radius: 16px;
+  border: 2px solid transparent;
+
+  transition: all var(--timing-function__main);
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+.ColoredBtn {
+  background-color: var(--brand_clr__1);
+  color: #fff;
+  fill: #fff;
+  &:hover {
+    background-color: var(--brand_clr__1-hover);
+  }
+  &:active {
+    background-color: var(--brand_clr__1-active);
+  }
+}
+.PrimaryBtn {
+  color: #fff;
+  fill: #fff;
+  background-color: var(--btn_bckgrnd-color);
+  &:hover {
+    background-color: var(--btn_bckgrnd-color-hover);
+  }
+  &:active {
+    background-color: var(--btn_bckgrnd-color-active);
+  }
+}
+.BorderBtn {
+  border: 2px solid var(--brand_clr__1);
+  background-color: transparent;
+  &:hover {
+    border-color: var(--brand_clr__1-hover);
+    color: var(--brand_clr__1-hover);
+    fill: var(--brand_clr__1-hover);
+  }
+  &:active {
+    border-color: var(--brand_clr__1-active);
+    color: var(--brand_clr__1-active);
+    fill: var(--brand_clr__1-active);
+  }
+}

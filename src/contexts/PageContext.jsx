@@ -4,7 +4,7 @@ const PageContext = createContext();
 
 export const usePage = () => useContext(PageContext);
 
-export const PageProvider = ({ children }) => {
+export const PageProvider = props => {
   const [selectedItemId, setSelectedItemId] = useState(null);
 
   function selectItemByClick(itemId) {
@@ -18,9 +18,9 @@ export const PageProvider = ({ children }) => {
 
   return (
     <PageContext.Provider
-      value={{ selectItemByClick, deleteItemByClick, selectedItemId }}
+      value={{ selectItemByClick, deleteItemByClick, selectedItemId, ...props }}
     >
-      {children}
+      {props.children}
     </PageContext.Provider>
   );
 };
