@@ -5,15 +5,23 @@ import s from './ButtonLink.module.scss';
 const ButtonLink = ({
   children,
   to = '/',
-  style = {},
+  styles = {},
+  size = '',
   className = '',
+  text = '',
   onClick,
   styleType = 'PrimaryBtn',
 }) => {
   const classNames = [s.Button, s[styleType], className].join(' ');
+  let style = {
+    width: size,
+    height: size,
+    ...styles,
+  };
   return (
     <Link to={to} onClick={onClick} style={style} className={classNames}>
-      <span>{children}</span>
+      <span>{text}</span>
+      {children}
     </Link>
   );
 };

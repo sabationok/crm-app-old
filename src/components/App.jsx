@@ -10,8 +10,9 @@ import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import s from './App.module.scss';
 
-const MainPage = lazy(() => import('./Pages/PageMain/PageMain'));
-const NotFoundPage = lazy(() => import('./Pages/PageNotFound/PageNotFound'));
+const PageMain = lazy(() => import('./Pages/PageMain/PageMain'));
+const PageNotFound = lazy(() => import('./Pages/PageNotFound/PageNotFound'));
+const PageLogOut = lazy(() => import('./Pages/PageLogOut/PageLogOut'));
 const PageProducts = lazy(() => import('./Pages/PageProducts/PageProducts'));
 const PageOrders = lazy(() => import('./Pages/PageOrders/PageOrders'));
 const PageReturns = lazy(() => import('./Pages/PageReturns/PageReturns'));
@@ -25,8 +26,8 @@ export const App = () => {
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>
-            <Route index element={<MainPage />} />
-            <Route path="main" element={<MainPage />} />
+            <Route index element={<PageMain />} />
+            <Route path="main" element={<PageMain />} />
             <Route path="products" element={<PageProducts />} />
             <Route path="orders" element={<PageOrders />} />
             <Route path="returns" element={<PageReturns />} />
@@ -34,7 +35,8 @@ export const App = () => {
             <Route path="counterParty" element={<PageCounterParty />} />
             <Route path="settings" element={<PageSettings />} />
             <Route path="admin" element={<PageAdmin />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="logOut" element={<PageLogOut />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
       </Layout>

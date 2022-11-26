@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 30px max-content 30px 1fr;
+  grid-template-columns: 30px 1fr 30px 1fr 30px;
   grid-template-rows: 30px;
   gap: 8px;
   align-items: center;
@@ -31,7 +31,11 @@
     outline-style: none;
   }
 }
-.title{
+.title {
+  padding: 4px;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-transform: capitalize;
 }
-

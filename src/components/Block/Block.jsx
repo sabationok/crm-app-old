@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
-import BlockPortal from './BlockPortal';
+// import BlockPortal from './BlockPortal';
 import BlockContext from './BlockContext';
 import BlockHeaderFilter from './BlockHeaderFilter/BlockHeaderFilter';
 import BlockHeaderLink from './BlockHeaderLink/BlockHeaderLink';
@@ -10,12 +10,10 @@ const Block = ({
   children,
   title = 'Block',
   iconId='info',
-  subTitle = null,
   footer = true,
   header = true,
   style = {},
   className = '',
-  iconStartId = null,
   inWork = false,
 
   blockFilter = false,

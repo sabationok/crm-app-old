@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 
-import BlockFilter from './BlockFounder/BlockFounder';
+import BlockFounder from './BlockFounder/BlockFounder';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import BlockActions from '../BlockActions/BlockActions';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 
 import s from './BlockHeaderFilter.module.scss';
 
-const BlockHeaderFilter = ({
-  title,
-  iconId = 'info',
-  subTitle,
-  blockFilter,
-  blockFilterParams,
-}) => {
+const BlockHeaderFilter = ({ title, iconId = 'info', subTitle, blockFilter, blockFilterParams }) => {
   const [filterActive, setFilterActive] = useState(false);
   function hadleToggleFilter() {
     setFilterActive(!filterActive);
@@ -22,14 +17,15 @@ const BlockHeaderFilter = ({
     <div className={s.header}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
-      <BlockFilter blockFilterParams={blockFilterParams} />
+      <BlockFounder blockFilterParams={blockFilterParams} />
 
-      <ButtonIcon
-        iconId={filterActive ? 'filter-on' : 'filter-off'}
-        size="30px"
-        onClick={hadleToggleFilter}
-      />
-      {title && <span className={s.title}>{title}</span>}
+      <ButtonIcon iconId={filterActive ? 'filter-on' : 'filter-off'} size="30px" onClick={hadleToggleFilter} />
+      {title && (
+        <span className={s.title}>
+          <span>{title}</span>
+        </span>
+      )}
+      <BlockActions />
     </div>
   );
 };

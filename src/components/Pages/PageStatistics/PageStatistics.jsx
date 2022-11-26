@@ -18,7 +18,7 @@ const PageStatistics = props => {
             <Block title="Звіт" iconId="assignment-ok" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Статистика" iconId="stat" />
+            <Block title="Статистика" iconId="statistics" />
           </div>
         </section>
       </div>

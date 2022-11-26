@@ -17,7 +17,7 @@ const PageMain = () => {
             <Block title="Деталі завдання" iconId="info" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Сповіщення" iconId="storage" />
+            <Block title="Сповіщення" iconId="chat" />
           </div>
         </section>
       </div>

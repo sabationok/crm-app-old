@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 24px minmax(120px, 1fr) 2fr 30px 30px;
+  grid-template-columns: 24px minmax(120px, 1fr) 2fr 30px;
   grid-template-rows: 30px;
   gap: 8px;
   align-items: center;
@@ -9,6 +9,8 @@
   top: 0;
   left: 0;
   z-index: 6;
+
+  overflow: visible;
 
   width: 100%;
   padding: 0 8px;
@@ -27,7 +29,8 @@
   text-overflow: ellipsis;
 
   cursor: pointer;
-
+  
+  transition: all var(--timing-function__main);
   &:hover,
   &:focus {
     text-decoration: underline;
@@ -40,6 +43,7 @@
     text-overflow: ellipsis;
   }
 }
+
 .titleInner {
   white-space: nowrap;
   overflow: hidden;
